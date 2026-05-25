@@ -2,12 +2,17 @@ import psutil
 import time
 import logging
 
-logging.basicConfig(
-    filename= 'system_monitor.log',
-    level=logging.INFO,
-    format='%(asctime)s - [%(levelname)s] - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
+from logging.handlers import RotatingFileHandler
+
+log_handler = RotatingFileHandler('system_monitor.log', maxBytes=150, backupCount=3)
+log_formatter = logging.Formatter('%(asctime)s - [%(levelname)s] -%(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+log_handler.setFormatter(log_formatter)
+
+logger = logging.getLogger("DevOpsLogger")
+logger.setLevel(logging.INFO)
+logger.addHandler(log_handler)
+
+
 
 def check_cpu():
     return psutil.cpu_percent(interval=0.5)
@@ -29,8 +34,8 @@ def monitor_system():
             ram = check_ram()
 
             log_message = f"CPU Usage: {cpu}% | RAM Usage: {ram}%"
-            print(f"[LIVE] {log_message}")
-            logging.info(log_message)
+           # print(f"[LIVE] {log_message}")
+            logger.info(log_message)
 
             print("-" * 46)
             time.sleep(2)
