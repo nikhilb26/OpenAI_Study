@@ -1,0 +1,13 @@
+name: First CI/CD Pipeline
+
+on: [push]
+
+jobs:
+    maza-robot:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+            - name: Say Hello
+              run: echo "Hello Nikhil! Welcome to CI/CD Automation!"
+              
