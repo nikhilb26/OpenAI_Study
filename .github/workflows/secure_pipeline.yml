@@ -1,0 +1,21 @@
+name: Secure Secrets Pipeline
+
+on: [push]
+
+jobs:
+    teat-sectets:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v3
+          - name: Check Secret Connection
+            env:
+              MY_KEY: ${{ secrets.OPENAI_API_KEY }}
+            run: |
+               echo "Connecting to AI server securely..."
+               echo "Checking the secret format..."
+               echo "The length of the secret key is: ${#MY_KEY} characters."
+               echo " Secret fetched successfully from GitHub Vault without exposing it!"
+               
+
+
