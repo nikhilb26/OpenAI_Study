@@ -3,15 +3,14 @@ name: System Checker Pipeline
 on: [push]
 
 jobs:
-   check-system:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checktout Code
-          uses: actions/chectout@v3
+  check-system:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-        - name: Check Ubuntu Version
-          run: cat /etc/os-release
+      - name: Check Ubuntu Version
+        run: cat /etc/os-release
 
-        - name: List All Files
-          run: ls -la
-          
+      - name: List All Files
+        run: ls -la
