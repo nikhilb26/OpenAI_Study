@@ -21,5 +21,4 @@ jobs:
       - name: Run Linter
         run: |
           echo " Checking Python code for sysntax errors..."
-          flake8. || echo " Code check complete!"
-          
+          flake8 . || echo " Code check complete!"
