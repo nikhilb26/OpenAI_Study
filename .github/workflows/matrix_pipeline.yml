@@ -1,6 +1,9 @@
 name: Matrix Build Pipeline
 
-on: [push]
+on:
+  puah:
+    schedule:
+      - cron: '0 0 * * *'
 
 jobs:
   test-multiple-versions:
