@@ -1,0 +1,21 @@
+name: Artifact Builder
+
+on: [push]
+
+jobs:
+    bulid-and-save:
+        runs-on: ubuntu-latest
+        steps:
+          - name: create a Report File
+            run: |
+              echo "DevOps Engineer: Nikhil" > report.txt 
+              echo "Status: Learning GitHub Artifacts like a pro!" >> report.txt
+              echo "Location: Satara Server" >> report.txt
+              echo "Report generated successfully."
+
+          - name: Upload Artifact
+            uses: actions/upload-artifact@v4
+            with:
+                name: my-devops-report
+                path: report.txt
+
