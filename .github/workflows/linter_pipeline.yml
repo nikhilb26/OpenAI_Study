@@ -14,6 +14,9 @@ jobs:
               with:
                 python-version: '3.10'
 
+            - name: Install Flake8 Linter
+              run: pip install flake8
+
             - name: Run Linter
               run: |
                 echo " Checking Python code for syntax errors..."
