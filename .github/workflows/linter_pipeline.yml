@@ -17,8 +17,16 @@ jobs:
 
       - name: Install flake8 Linter
         run: pip install flake8
-
-      - name: Run Linter
+      
+      - name: Run Linter and Save Report
         run: |
-          echo " Checking Python code for sysntax errors..."
-          flake8 . || echo " Code check complete!"
+          echo "Checking Python Code for syntax error..."
+          flake8 . > flake8_report.txt || echo "Code check complete!"
+
+      - name: Upload Report as Artifact
+        uses: action/upload-artifact@v4
+        with:
+          name: Linter-Report
+          path: flake8_report.txt
+
+      
