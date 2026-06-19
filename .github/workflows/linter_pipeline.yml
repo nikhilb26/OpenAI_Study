@@ -24,7 +24,7 @@ jobs:
           flake8 . > flake8_report.txt || echo "Code check complete!"
 
       - name: Upload Report as Artifact
-        uses: action/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: Linter-Report
           path: flake8_report.txt
