@@ -28,5 +28,3 @@ jobs:
         with:
           name: Linter-Report
           path: flake8_report.txt
-
-      
